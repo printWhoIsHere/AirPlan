@@ -1,0 +1,32 @@
+﻿<Window x:Class="AirPlan.Pages.Models.shedulerWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirPlan.Pages.Models"
+        mc:Ignorable="d"
+        Title="shedulerWindows" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30">
+                <TextBlock x:Name="TextBlockFrom" Text="From: from"/>
+                <TextBlock x:Name="TextBlockTo" Text="To: to" Margin="30,0,0,0"/>
+                <TextBlock x:Name="TextBlockAircraft" Text="Aircraft: aircraft" Margin="30,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Date: " VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <DatePicker x:Name="DatePickerEditDate" Width="150"/>
+                <TextBlock Text="Time: " VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBox x:Name="TextBoxTime"  Width="70"/>
+                <TextBlock Text="Economy price $ : "  VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBox x:Name="TextBoxPrice" Width="70" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,30,30,0" HorizontalAlignment="Right">
+                <Button Click="clickUpdate" Width="70" Content="Update" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Click="clickCancel" Width="70" Content="Cancel" VerticalAlignment="Center" Margin="15,0,0,0" Background="Red"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

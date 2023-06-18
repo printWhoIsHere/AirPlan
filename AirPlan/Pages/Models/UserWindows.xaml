@@ -1,0 +1,48 @@
+﻿<Window x:Class="AirPlan.Pages.Models.UserWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirPlan.Pages.Models"
+        mc:Ignorable="d"
+        Title="UserWindows" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
+            <Button Height="20" Content="Exit" Click="ClickExit" Width="100" Margin="15,0,0,0" Background="Red"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="15,0,0,0">
+            <TextBlock x:Name="TextBlockHello" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TextBlockCountCrashes" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TextBlockCountTimes" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridLogUsers" AutoGenerateColumns="False" Grid.Row="2" Margin="15">
+
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding state}" Value="ERROR">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="Время события" Binding="{Binding date}"/>
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="Тип активности" Binding="{Binding state}"/>
+
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="Описание" Binding="{Binding log}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
